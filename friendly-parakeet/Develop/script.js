@@ -171,26 +171,33 @@ function generatePassword() {
   }
 
   if (options.hasLower) {
-    possible.concat(lowerCasedCharacters);
+    possible = possible.concat(lowerCasedCharacters);
     guaranteed.push(getRandomElement(lowerCasedCharacters));
   }
   if (options.hasUpper) {
-    possible.concat(upperCasedCharacters);
+    possible = possible.concat(upperCasedCharacters);
     guaranteed.push(getRandomElement(upperCasedCharacters));
   }
   if (options.hasNumber) {
-    possible.concat(numericCharacters);
+    possible = possible.concat(numericCharacters);
     guaranteed.push(getRandomElement(numericCharacters));
   }
   if (options.hasSpecial) {
-    possible.concat(specialCharacters);
+    possible = possible.concat(specialCharacters);
     guaranteed.push(getRandomElement(specialCharacters));
   }
 
+
   for (var i = 0; i < options.length; i++) {
-    
+    var possChar = getRandomElement(possible);
+    result.push(possChar);
+  }
+  
+  for (var i = 0; i < guaranteed.length; i++) {
+    result[i] = guaranteed[i];
   }
 
+  return result.join('');
 
   
 };
