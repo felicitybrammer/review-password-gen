@@ -121,6 +121,7 @@ function getPwOptions() {
   //check that length meets criteria
   if (length < 8 || length > 128) {
     alert("You must enter a number greater than 7 or less than 129");
+    //getPwOptions();
     return null;
   }
 
